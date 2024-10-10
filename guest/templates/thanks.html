@@ -32,6 +32,7 @@
     <form action="{% url 'thanks' %}" method="post">
         {% csrf_token %}
         <input type="hidden" name="user_id" value="{{ user_id }}">    
+        <input type="hidden" name="student_id" value="{{ student_id }}">    
 
         <div class="d-flex justify-content-center align-items-center">
             <h1 class="text">Nos conte a sua experiência na Jornada Científica!</h1>

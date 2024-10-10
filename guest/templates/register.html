@@ -38,12 +38,14 @@
             <label for="validationServer01" style:"background-color: #bcbcbc"class="form-label" style="color: #42bcbc"></label>
             <h1></h1>
             <input type="text" class="form-control is-valid" name="name" placeholder="Nome do visitante" id="validationServer01" value="" required>
+            <input type="text" class="form-control is-valid" name="CPF" placeholder="CPF do visitante" id="validationServer01" value="" required>
+            <input type="text" class="form-control is-valid" name="student_name" placeholder="Nome do aluno" id="validationServer01" value="" required>
             <label for="validationServer01" class="form-label" style="color: #42bcbc"></label>
             {% comment %} <input type="text" class="form-control is-valid" id="validationServer03" name="email" placeholder="Email do visitante" aria-describedby="validationServer03Feedback" required> {% endcomment %}
-        {% if group_id == None %}
+        {% comment %} {% if group_id == None %}
         <div class="col-md-4">
             <label for="group_id" class="form-label"></label>
-            <select name="group" id="group_id" value="{{eletiva_id}}">
+            <select name="group" id="group_id" value="{{eletiva_id}}"> 
                 <option value="">Eletiva</option>
                 {% for group in groups %}
                 <option value="{{group.pk}}"> {{group.group_name}} </option>
@@ -57,10 +59,10 @@
             
         </div>  
         
-        {% endif %}
+        {% endif %} {% endcomment %}
         <div class="col-12">
             <h2 class="espaco"></h2>
-            <button class="btn btn-primary" type="submit" style="color: #f0f0f0">enviar</button>
+            <button class="btn btn-primary" type="submit" style="color: #f0f0f0">Enviar</button>
         </div>
         </form>
     </div>

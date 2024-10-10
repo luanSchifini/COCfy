@@ -1,5 +1,7 @@
 from django.shortcuts import render
+
 from guest.models import Guest
+
 
 def choice(request):
     if request.method == 'POST':

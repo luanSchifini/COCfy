@@ -6,5 +6,5 @@ class Group(models.Model):
     eletiva = models.ForeignKey(Eletiva, on_delete = models.CASCADE)
 
     def __str__(self) -> str:
-        return f'{self.group_name} -> {self.pk} -> {self.eletiva} '
+        return f'{self.group_name} -> {self.eletiva} '
 
