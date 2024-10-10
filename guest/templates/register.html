@@ -17,16 +17,8 @@
     <img src="{% static 'images/logococ.png' %}" alt="Minha Imagem" height="100" width="250">
     <h1></h1>
     <img class="imgcoc" style="margin-left: 18em" src="{% static 'images/logonormal.png' %}" alt="Minha Imagem" height="500" width="700">
-    {% if eletiva_id %}
-    Eletiva ID: {{ eletiva_id }}
-    {% endif %}
 
-
-    {% if group_id %}
-    Group ID: {{group_id}}
-    {% endif %}
-
-
+    
     {% if already_visited == True %}
     <h4 class="d-flex justify-content-center align-items-center" style="color: #42bcbc">Você já visitou um aluno</h4>
     {% endif %}
@@ -41,25 +33,6 @@
             <input type="text" class="form-control is-valid" name="CPF" placeholder="CPF do visitante" id="validationServer01" value="" required>
             <input type="text" class="form-control is-valid" name="student_name" placeholder="Nome do aluno" id="validationServer01" value="" required>
             <label for="validationServer01" class="form-label" style="color: #42bcbc"></label>
-            {% comment %} <input type="text" class="form-control is-valid" id="validationServer03" name="email" placeholder="Email do visitante" aria-describedby="validationServer03Feedback" required> {% endcomment %}
-        {% comment %} {% if group_id == None %}
-        <div class="col-md-4">
-            <label for="group_id" class="form-label"></label>
-            <select name="group" id="group_id" value="{{eletiva_id}}"> 
-                <option value="">Eletiva</option>
-                {% for group in groups %}
-                <option value="{{group.pk}}"> {{group.group_name}} </option>
-                {% endfor %}
-                    <input type="hidden" name="eletiva" value="{{eletiva_id}}">
-            </select>
-        </div>    
-        {% else %}
-        <div class="col-md-4" >
-            <input type="hidden" name="group" value="{{group_id}}">
-            
-        </div>  
-        
-        {% endif %} {% endcomment %}
         <div class="col-12">
             <h2 class="espaco"></h2>
             <button class="btn btn-primary" type="submit" style="color: #f0f0f0">Enviar</button>

@@ -1,17 +1,12 @@
-from django.http import HttpResponse
-from guest.models import Guest 
-from guest.services import get_guest, get_student, check_if_guest_exists
+from guest.services import get_guest, get_student
 from django.shortcuts import render
-
 from guest.views.verify import verify
-from guest.models import Guest, Student
 
 
 def _get_all_data(request):
     guest_id = request.POST.get('user_id')
     guest_instance = get_guest(guest_id)
-    # guest_cpf = request.POST.get('cpf')
-    
+
     student_id = request.POST.get('student_id')   
     if student_id == '':
         student_instance = None
