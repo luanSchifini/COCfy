@@ -20,17 +20,8 @@
         <div class="col-md-4 d-flex justify-content-center align-items-center">
             <label for="validationServer04" class="form-label" style="color: #42bcbc"></label>
             <input type="hidden" name="user_id" value="{{ user_id }}">
+            <input type="text" class="form-control is-valid" name="student_name" placeholder="Nome do aluno" id="validationServer01" value="" required>
         </div>
-        <div class="col-md-4 d-flex justify-content-center align-items-center flex-column  ">
-            <label for="student_id" class="form-label" style="color: #42bcbc"></label>
-            <select name="student" id="student_id"  value="{{group_id}}">
-                <option value="">Aluno</option>
-                {% for student in students %}  
-                <option class="option" value="{{student.pk}}"> {{student.student_name}} </option>
-                {% endfor %}
-                <input type="hidden" name="group" value="{{group_id}}">
-            </select>
-        </div>   
         <div class="col-12">
             <button class="btn btn-primary" style="color: #f0f0f0" type="submit">Enviar</button>
         </div>

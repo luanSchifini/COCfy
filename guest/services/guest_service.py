@@ -12,9 +12,9 @@ def check_if_guest_exists(guest_cpf: str) -> Guest | None:
     return Guest.objects.filter(cpf=guest_cpf)
 
 
-def register_guest(name: str, guest_cpf: str) -> Guest:
+def register_guest(guest_cpf: str) -> Guest:
     return Guest.objects.create(
-        name=name,
+        # name=name,
         verification_code=guest_cpf
     )
 
