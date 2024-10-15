@@ -6,16 +6,20 @@ from .group import Group
 
 class Student(models.Model):
     # id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-    student_name = models.CharField(max_length=30)
-    eletiva_group = models.ForeignKey(Group, on_delete = models.CASCADE, null=True)
-    
+    registration = models.IntegerField(null=True)
+    student_name = models.CharField(max_length=50)
+    anosemestre = models.IntegerField(null=True)
+    student_class =models.CharField(max_length=10, null=True)
+
+    def __str__(self):
+        return str(self.student_name)
+
     def get_visits(self):
         visits = self.my_visits.count()
 
         return visits
 
-
-    def __str__(self) -> str:
-        return f'{self.student_name} -> {self.eletiva_group} -> {self.get_visits()} visitas'
+    # def __str__(self) -> str:
+    #     return f'{self.registration} -> {self.student_name} -> {self.get_visits()} visitas'
     
 

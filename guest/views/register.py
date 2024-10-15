@@ -8,7 +8,7 @@ from guest.services import register_guest
 
 def _get_all_data(request):
     guest_cpf = request.POST['CPF']
-    guest_instance = Guest.objects.filter(verification_code=guest_cpf).first()
+    guest_instance = Guest.objects.filter(cpf=guest_cpf).first()
 
     return guest_cpf, guest_instance
 

@@ -5,7 +5,7 @@ import sqlite3
 from sqlite3 import Connection, Cursor
 
 csv_file_path = r'C:\Users\sergio\Desktop\cocjornada\database\Alunos_Jornada.csv'
-db_file_path = r'C:\Users\sergio\Desktop\cocjornada\final_db.sqlite3'
+db_file_path = r'C:\Users\sergio\Desktop\cocjornada\db.sqlite3'
 
 data_frame_columns_list = ['registration', 'student_name', 'anosemestre', 'student_class']
 
