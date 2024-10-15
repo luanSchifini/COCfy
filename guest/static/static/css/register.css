@@ -1,0 +1,57 @@
+body {
+    background-color: #424242;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logoJornada {
+    margin: 10px auto;
+    text-align: center;
+  }
+  
+  .logoJornada img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
+.form-label {
+    color: #42bcbc;
+}
+
+.col-12 {
+    margin-bottom: 30em; 
+}
+
+.btn-primary {
+    background-color: #42bcbc;
+    border-color: black;
+    color: #f0f0f0;
+    width: 100%; 
+    margin-bottom: 1em; 
+}
+
+.espaco {
+    margin-top: 0.5em;
+}
+
+.form-control {
+    margin-bottom: 1em;
+    border-color: none;
+    width: 100%; 
+}
+
+
+@media (max-width: 1024px) and (max-height: 600px) {
+    .imgcoc {
+        margin-top: 1em; /* Ajusta a margem superior para dispositivos menores */
+    }
+
+    .col-md-4 {
+        width: 80%; /* Define a largura do formulário para 80% da tela */
+    }
+
+    .btn-primary {
+        margin-bottom: 2em; /* Adiciona espaço entre o botão e os campos de entrada para dispositivos menores */
+    }
+}
