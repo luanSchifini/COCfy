@@ -4,12 +4,16 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.imgcoc {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2em; 
-}
+.logoJornada {
+    margin: 10px auto;
+    text-align: center;
+  }
+  
+  .logoJornada img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
 
 .form-label {
     color: #42bcbc;
