@@ -27,6 +27,7 @@
     </div>
 
     <div class="container mt-3">
+        <input type="hidden" name="student_id" value="{{ student_id }}">    
         <input id="search_here" class="form-control mb-3" placeholder="type here to search"/>
 
         <div id="box">
@@ -40,16 +41,12 @@
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
         <form class="row g-3" action="{% url 'verify' %}" method="post">
             {% csrf_token %} 
-            <div class="col-md-4 d-flex justify-content-center align-items-center">
-                <label for="validationServer04" class="form-label" style="color: #42bcbc"></label>
-                <input type="hidden" name="user_id" value="{{ user_id }}">
-                <input type="text" class="form-control is-valid" name="student_name" placeholder="Nome do aluno" id="validationServer01" value="" required>
-            </div>
             <div class="col-12">
                 <button class="btn btn-primary" style="color: #f0f0f0" type="submit">Enviar</button>
             </div>
         </form>
     </div>
+    
 
     <script src="{% static 'javascript/verify.js' %}"></script>
 
