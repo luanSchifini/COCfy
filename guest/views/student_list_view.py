@@ -6,7 +6,7 @@ import json
 
 class StudentListView(ListView):
     model = Student
-    template_name = 'infos/main.html'
+    template_name = 'templates/main.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
