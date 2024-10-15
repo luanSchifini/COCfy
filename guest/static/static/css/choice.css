@@ -1,0 +1,56 @@
+.btn-primary,
+.btn-secondary {
+    background-color: #42bcbc;
+    border-color: black;
+    transition: all 0.3s ease;
+    font-size: xx-large;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    display: inline;
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    margin-bottom: 19em;
+}
+
+.btn-primary {
+    padding: 0 1.3em 0 1.3em;
+    margin-right: 3em;
+}
+
+.btn-secondary {
+    padding: 0.2em 1.3em 0em 1.3em;
+    align-content: center;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: scale(1.1);
+}
+
+.imgcoc {
+    margin-left: 5em;
+}
+
+
+@media (max-width: 1024px) and (max-height: 600px) {
+    .btn-primary,
+    .btn-secondary {
+        width: 100%; /* Faz os botões ocuparem 100% da largura disponível */
+        height: auto; /* Permite que a altura seja ajustada automaticamente de acordo com o conteúdo */
+        margin-bottom: 1em; /* Reduz o espaçamento inferior */
+    }
+
+    .btn-primary {
+        margin-right: 0; /* Remove o espaçamento à direita */
+    }
+
+    .btn-secondary {
+        padding: 0.5em 1.3em; /* Ajusta o preenchimento do botão */
+    }
+
+    .imgcoc {
+        margin-left: 2em; /* Reduz o espaço à esquerda da imagem */
+    }
+}
