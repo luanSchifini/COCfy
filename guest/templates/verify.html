@@ -25,6 +25,17 @@
     <div class="logoJornada">
         <img src="{% static 'images/logojornada.png' %}" alt="Logo da Jornada">
     </div>
+
+    <div class="container mt-3">
+        <input id="search_here" class="form-control mb-3" placeholder="type here to search"/>
+
+        <div id="box">
+        {% for item in object_list %}
+            <b>{{item}}</b><br>
+        {% endfor%}
+        </div>
+
+    </div>
     
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
         <form class="row g-3" action="{% url 'verify' %}" method="post">
@@ -39,6 +50,8 @@
             </div>
         </form>
     </div>
+
+    <script src="{% static 'javascript/verify.js' %}"></script>
 
 </body>
 </html>
