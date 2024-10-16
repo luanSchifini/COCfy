@@ -26,29 +26,19 @@
         <img src="{% static 'images/logojornada.png' %}" alt="Logo da Jornada">
     </div>
 
-    <div class="container mt-3">
-        <input type="hidden" name="student_id" value="{{ student_id }}">    
-        <input id="search_here" class="form-control mb-3" placeholder="type here to search"/>
 
-        <div id="box">
-        {% for item in object_list %}
-            <b>{{item}}</b><br>
-        {% endfor%}
-        </div>
-
-    </div>
+    <div class="barra-pesquisa" id="campo-pesquisa">
+        <input  type="text" placeholder="Digite o nome">
+        <i class="fa-sharp fa-solid fa-magnifying-glass" style="color: #FFFFFF;"></i>
+      </div>
+    </section>
+    <section class="resultados-pesquisa" id="resultados-pesquisa">
     
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh">
-        <form class="row g-3" action="{% url 'verify' %}" method="post">
-            {% csrf_token %} 
-            <div class="col-12">
-                <button class="btn btn-primary" style="color: #f0f0f0" type="submit">Enviar</button>
-            </div>
-        </form>
-    </div>
+    </section>
     
 
     <script src="{% static 'javascript/verify.js' %}"></script>
+    <script src='database/export_data.py'></script>
 
 </body>
 </html>
