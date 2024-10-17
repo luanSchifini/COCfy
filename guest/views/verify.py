@@ -3,9 +3,8 @@ business rule
 """
 from django.shortcuts import render
 from guest.models import Guest, Student 
-from guest.services import get_guest
-from guest.services import increment_student_visits
-
+from guest.services import get_guest, increment_student_visits
+from .student_list_view import StudentListView
 
 
 def _get_all_data(request):
@@ -53,6 +52,7 @@ def verify(request):
     guest_id, guest_instance, student_instance, student_id = _get_all_data(request)
     
     if request.method == 'POST':
-        return _verify_student_visit(request, guest_instance, guest_id, student_instance, student_id)
+        _verify_student_visit(request, guest_instance, guest_id, student_instance, student_id)
+        return StudentListView.as_view()
 
     return _render_register(request, guest_id)

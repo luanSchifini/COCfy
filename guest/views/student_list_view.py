@@ -1,15 +1,10 @@
-from django.shortcuts import render
 from django.views.generic import ListView
-from models import Student
-import json 
-
+from guest.models import Student
+from django.utils.safestring import mark_safe
+import json
 
 class StudentListView(ListView):
     model = Student
     template_name = 'verify.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["qs_json"] = json.dumps(list(Student.objects.name)) 
-        return context
-        
+    
+    

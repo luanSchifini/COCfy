@@ -1,0 +1,26 @@
+/* Autocomplete Suggestions Styles */
+.autocomplete-box {
+    border: 1px solid #42bcbc; /* Match the primary color */
+    max-height: 200px; /* Limit the height of the dropdown */
+    overflow-y: auto; /* Allow scrolling if necessary */
+    background-color: #424242; /* Same background color as the body */
+    position: absolute; /* Position it below the input */
+    z-index: 1000; /* Ensure it appears above other elements */
+    width: calc(100% - 2px); /* Ensure the width matches the input */
+    border-radius: 5px; /* Slight rounding for a smoother look */
+}
+
+.autocomplete-box b {
+    display: block; /* Make each suggestion a block element */
+    padding: 10px; /* Padding for better touch targets */
+    color: #f0f0f0; /* Text color for better visibility */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.autocomplete-box b:hover {
+    background-color: rgba(66, 188, 188, 0.5); /* Highlight on hover with a slight color change */
+}
+
+.autocomplete-box b:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Optional: add a separator between items */
+}

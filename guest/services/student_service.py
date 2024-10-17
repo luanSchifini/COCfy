@@ -1,6 +1,5 @@
 from typing import List
 from guest.models import Student, Guest
-from .group_service import get_eletiva_group
 
 
 """
