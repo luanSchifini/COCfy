@@ -36,14 +36,16 @@ body {
   
 }
 
+.col-12 {
+  margin-bottom: 30em; 
+}
+
 .btn-primary {
-  margin-left: 9em;
   background-color: #42bcbc;
   border-color: black;
-  color: #000000;
-}
-.col-12{
-  margin-bottom: 33em;
+  color: #f0f0f0;
+  width: 100%; 
+  margin-bottom: 1em; 
 }
 .form-label{
   margin-right: 3em;
