@@ -38,7 +38,7 @@
 
 .text {
   color: #42bcbc;
-  margin: 1em 6em 0.7em 0em;
+  margin: 1em 0.8em 0.7em 0em;
   font-size: x-large;
   
 }
@@ -62,7 +62,7 @@
   flex-direction: column;
   margin-right: 3em;
   margin-bottom: 1em;
-  background-color: #42bcbc;
+  background-color: black;
   border: none;
   color: #ffffff;
   padding: 1em 0 1em 0;
@@ -71,6 +71,13 @@
 
 .btn-primary:hover {
   transform: scale(1.1);
+}
+
+.emoji {
+  width: 20%; /* Define um tamanho fixo para largura */
+  height: 20%; /* Define um tamanho fixo para altura */
+  object-fit: contain; /* Garante que o SVG se ajuste corretamente */
+  margin: 5% auto; /* Centraliza o ícone */
 }
 
 .mr-2{
