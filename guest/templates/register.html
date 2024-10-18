@@ -15,42 +15,38 @@
 
     <script>
         function formatCPF(value) {
-            // tira tudo que não é dígito
             value = value.replace(/\D/g, '');
         
-            // deixa com formato de cpf
             if (value.length <= 3) {
-                return value; // 3 primeiros números
+                return value; 
             } else if (value.length <= 6) {
-                return value.replace(/(\d{3})(\d)/, '$1.$2'); // 000.000
+                return value.replace(/(\d{3})(\d)/, '$1.$2'); 
             } else if (value.length <= 9) {
-                return value.replace(/(\d{3})(\d{3})(\d)/, '$1.$2.$3'); // 000.000.000
+                return value.replace(/(\d{3})(\d{3})(\d)/, '$1.$2.$3'); 
             } else {
-                return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'); // 000.000.000-00
+                return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4'); 
             }
         }
 
         function toggleSubmitButton() {
             const cpfInput = document.getElementById('validationServer01');
             const submitButton = document.getElementById('submitButton');
-            // vê se o cpf tem 11 dígitos e só números
             const isValidCPF = cpfInput.value.replace(/\D/g, '').length === 11;
-            submitButton.disabled = !isValidCPF; // desabilita o botão se o CPF não for válido
+            submitButton.disabled = !isValidCPF; 
         }
 
         function handleInput(event) {
             const input = event.target;
-            input.value = formatCPF(input.value); // formata o CPF
-            toggleSubmitButton(); // vê se o botão tem que ser habilitado
+            input.value = formatCPF(input.value); 
+            toggleSubmitButton(); 
         }
 
         window.onload = function() {
-            toggleSubmitButton(); // testa o estado quando carrega a página
+            toggleSubmitButton(); 
         };
     </script>
-
-
 </head>
+
 <body style="background-color: #000000">
     <img src="{% static 'images/logococ.png' %}" alt="Minha Imagem" height="100" width="250">
     <h1></h1>
@@ -62,19 +58,17 @@
     {% if already_visited == True %}
     <h4 class="d-flex justify-content-center align-items-center" style="color: #42bcbc">Você já visitou um aluno</h4>
     {% endif %}
-
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <form class="col-md-4" style="padding-top: 2em" action="{% url 'register' %}" method="post">
             {% csrf_token %}
             <label for="validationServer01" class="form-label" style="color: #42bcbc"></label>
             <h1></h1>
             <input type="text" class="form-control is-valid" name="CPF" placeholder="CPF do visitante" id="validationServer01" oninput="handleInput(event)" required>
-            <label for="validationServer01" class="form-label" style="color: #42bcbc"></label>
             <div class="col-12">
-                <h2 class="espaco"></h2>
                 <button id="submitButton" class="btn btn-primary" type="submit" style="color: #f0f0f0" disabled>Enviar</button>
             </div>
         </form>
     </div>
 </body>
 </html>
+

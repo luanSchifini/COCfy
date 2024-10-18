@@ -6,30 +6,63 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/verify.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/autocomplete.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/autocomplete.css' %}"/>
     <link rel="website icon" type="png" href="{% static 'images/coc.png' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@800&display=swap" rel="stylesheet">
 
     <script>
-        console.log('iniciando ')    
-        function filterStudent(value) {
-            const studentList = document.getElementById('search_students'); // Get the student list
-            const students = studentList.getElementsByTagName('li'); // Get all list items (students)
-    
-            Array.from(students).forEach(function (student) {
-                if (student.textContent.toLowerCase().includes(value.toLowerCase())) {
-                    student.style.display = 'block'; //display submit button
-                } else {
-                    student.style.display = 'none'; 
-                }
+        let students = [];
+
+        async function fetchStudents() {
+            const response = await fetch("{% url 'students' %}");
+            const data = await response.json();
+            console.log('Fetched Students:', data);  
+            return data;
+        }
+        
+        function createStudentButtons(students) {
+            const studentList = document.getElementById('search_students');
+            studentList.innerHTML = '';  
+        
+            students.forEach(student => {
+                console.log('Student object:', student);  
+                
+                const li = document.createElement('li');
+                const button = document.createElement('button');
+
+                const studentName = (typeof student === 'string') ? student : student.student_name || student.name || "Unnamed";
+
+                button.innerHTML = studentName; 
+                button.className = 'btn btn-primary';
+                button.type = 'submit';
+                button.name = 'student_name';
+                button.value = studentName;
+        
+                li.appendChild(button);
+                studentList.appendChild(li);
             });
         }
-    
-        function handleInput(event) {
-            const input = event.target;
-            filterStudent(input.value);
+        
+        function filterStudent(value) {
+            const filteredStudents = students.filter(student => {
+                const studentName = (typeof student === 'string') ? student : student.student_name || student.name || "";
+                return studentName.toLowerCase().includes(value.toLowerCase());
+            });
+            createStudentButtons(filteredStudents);  
         }
-    </script>
+        
+        document.addEventListener('DOMContentLoaded', async function() {
+            students = await fetchStudents();  
 
+            createStudentButtons(students);
+        
+            const searchInput = document.getElementById('search_here');
+            searchInput.addEventListener('input', function(event) {
+                filterStudent(event.target.value);  
+            });
+        });
+    </script> 
 </head>
 
 <body class="p-5" style="background-color: #000000">
@@ -40,23 +73,13 @@
             <img src="{% static 'images/logojornada.png' %}" alt="Logo da Jornada">
         </div>
         
-        <div id="debug-json">{{ qs_json }}</div>
-
         <div class="container mt-3">
-            <input type="hidden" name="user_id" value="{{ user_id }}">
-            
-            <input id="search_here" class="form-control mb-3" oninput="handleInput(event)" placeholder="Digite o nome do aluno(a)"/>
 
             <form id="student_form" method="POST" action="{% url 'verify' %}">
                 {% csrf_token %}
+                <input type="hidden" name="user_id" value="{{ user_id }}">
+                <input id="search_here" class="form-control mb-3" placeholder="Digite o nome do aluno(a)"/>
                 <ul id="search_students">
-                    {% for student in object_list %}
-                        <li>
-                            <button type="submit" name="student_name" value="{{ student.student_name }}" class="btn btn-primary">{{ student.student_name }}</button>
-                        </li>
-                    {% empty %}
-                        <li>No students found.</li>
-                    {% endfor %}
                 </ul>
             </form>
         </div>

@@ -31,22 +31,23 @@ def _display_register_form(request, common_context=None):
 
 def _render_verify(request, new_guest_instance: Guest, common_context=None):
     guest_id = new_guest_instance.pk
-
+    print('guest_id')
+    print(guest_id)
     success_register_context = {'user_id': guest_id}
     return render(request, 'verify.html', success_register_context)
 
 
 def register_guest_instance(request, common_context=None):
-    guest_cpf, guest_instance= _get_all_data(request)
-    print('guest instance')
-    print(guest_instance)
+    guest_cpf, guest_instance = _get_all_data(request)
 
     if guest_instance_exists(guest_instance):
         print('guest exists')
         return _render_register_form(request)        
     else:        
-        print('guest None')
+        print('guest == None')
         new_guest_instance = register_guest(guest_cpf)
+        print('new_guest_instance')
+        print(new_guest_instance)
         return _render_verify(request, new_guest_instance)
 
 

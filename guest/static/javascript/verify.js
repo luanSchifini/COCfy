@@ -1,23 +1,29 @@
-const data = '{{qs_json}}'
-console.log(data)
+console.log('iniciando')
+// Ensure that the input and box elements exist
+const input = document.getElementById('search_here');
+const box = document.getElementById('box'); // Reference the suggestion box
 
-const rdata = JSON.parse(data.replace(/&quot;/g, '""'))
-console.log(data)
+input.addEventListener('keyup', (e) => {
+    console.log(e)
+    const searchTerm = e.target.value.toLowerCase();
+    box.innerHTML = ""; // Clear the suggestions box
 
-const input = document.getElementsById('search_here')
-console.log(input)
-
-let filteredArr = []
-
-input.addEventListener('keyup', (e)=>{
-    box.innerHTML = ""
-    filteredArr = rdata.filter(info=> info['name'].includes(e.target.value))
-    console.log(filteredArr)
-    if (filteredArr.length > 0) {
-        filteredArr.map(info=>{
-            box.innerHTML += `<b>${info['name']}</b><br>`
-        })
-    } else {
-        box.innerHTML = "<b>No results found...</b>"
+    if (searchTerm.length === 0) {
+        return; // If the input is empty, don't display anything
     }
-})
+
+    // Filter the student names based on the search term
+    const filteredArr = data.filter(info =>
+        info['student_name'].toLowerCase().includes(searchTerm)
+    );
+
+    // Display the results
+    if (filteredArr.length > 0) {
+        filteredArr.forEach(info => {
+            box.innerHTML += `<b>${info['student_name']}</b><br>`;
+        });
+    } else {
+        box.innerHTML = "<b>No results found...</b>";
+    }
+});
+
